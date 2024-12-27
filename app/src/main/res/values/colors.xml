@@ -5,4 +5,5 @@
     <color name="toolbar_color">#CFE550</color>
     <color name="active_color">#CFE550</color>
     <color name="inactive_color">#7C7979</color>
+    <color name="title_color">#2E2E2E</color>
 </resources>
