@@ -1,6 +1,5 @@
 package com.example.ecomaxgoassessmant
 
-
 import android.animation.ValueAnimator
 import android.content.Context
 import android.graphics.*
@@ -11,14 +10,14 @@ import kotlin.math.min
 class FlightPathView(context: Context, attrs: AttributeSet?) : View(context, attrs) {
 
     private val paintPath = Paint().apply {
-        color = Color.RED
+        color = Color.parseColor("#2E2E2E")
         strokeWidth = 5f
         style = Paint.Style.STROKE
         isAntiAlias = true
     }
 
-    private val paintMarker = Paint().apply {
-        color = Color.BLUE
+    private val paintGreenDot = Paint().apply {
+        color = Color.parseColor("#CFE550")
         style = Paint.Style.FILL
         isAntiAlias = true
     }
@@ -31,12 +30,24 @@ class FlightPathView(context: Context, attrs: AttributeSet?) : View(context, att
 
     private var worldMapBitmap: Bitmap? = null
 
+    // Declare these variables as class properties
+    private var startLat: Float = 0f
+    private var startLng: Float = 0f
+    private var endLat: Float = 0f
+    private var endLng: Float = 0f
+
     init {
         // Load your world map image
         worldMapBitmap = BitmapFactory.decodeResource(context.resources, R.drawable.group_map)
     }
 
+    // This method sets the flight path and stores the start and end coordinates
     fun setFlightPath(startLat: Float, startLng: Float, endLat: Float, endLng: Float) {
+        this.startLat = startLat
+        this.startLng = startLng
+        this.endLat = endLat
+        this.endLng = endLng
+
         worldMapBitmap?.let { bitmap ->
             val startPoint = latLngToPoint(startLat, startLng, bitmap)
             val endPoint = latLngToPoint(endLat, endLng, bitmap)
@@ -64,8 +75,25 @@ class FlightPathView(context: Context, attrs: AttributeSet?) : View(context, att
         // Draw the flight path
         canvas.drawPath(path, paintPath)
 
-        // Draw the moving marker
-        canvas.drawCircle(markerX, markerY, 10f, paintMarker)
+        // Draw the two green dots at the start and end of the curve
+        worldMapBitmap?.let { bitmap ->
+            val startPoint = latLngToPoint(startLat, startLng, bitmap)
+            val endPoint = latLngToPoint(endLat, endLng, bitmap)
+
+            // Draw the green dot at the starting point
+            canvas.drawCircle(startPoint.x, startPoint.y, 10f, paintGreenDot)
+
+            // Draw the green dot at the ending point
+            canvas.drawCircle(endPoint.x, endPoint.y, 10f, paintGreenDot)
+        }
+
+        // Draw the moving marker as an icon (instead of the blue circle)
+        val markerBitmap = BitmapFactory.decodeResource(context.resources, R.drawable.plane_marker) // Your custom icon (e.g., plane or pin)
+        val markerWidth = markerBitmap.width
+        val markerHeight = markerBitmap.height
+
+        // Draw the icon at the current position of the marker
+        canvas.drawBitmap(markerBitmap, markerX - markerWidth / 2, markerY - markerHeight / 2, null)
     }
 
     fun startFlightAnimation() {
@@ -94,4 +122,3 @@ class FlightPathView(context: Context, attrs: AttributeSet?) : View(context, att
         return PointF(x, y)
     }
 }
-
