@@ -5,362 +5,540 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
     android:background="@color/white"
+    tools:context=".MainActivity"
     >
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/toolbar_radius"
         android:elevation="8dp"
         android:paddingBottom="8dp"
-        app:layout_scrollFlags="scroll|enterAlways"
-        android:background="@drawable/toolbar_radius"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_scrollFlags="scroll|enterAlways"
         />
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="-8dp"
-        android:background="@drawable/toolbar_radius"
-        android:elevation="4dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:weightSum="3"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:paddingVertical="10dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/bus">
-
-            </ImageView>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Bus"
-                android:textSize="14dp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:paddingVertical="10dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/bus"
-                app:tint="@color/toolbar_color"
-
-                >
-
-            </ImageView>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Flight"
-                android:textColor="@color/toolbar_color"
-                android:textSize="14dp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:paddingVertical="10dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/bus">
-
-            </ImageView>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Hotels"
-                android:textSize="14dp" />
-
-        </LinearLayout>
-
-
-
-    </LinearLayout>
-
-    <RelativeLayout
-        android:id="@+id/relativeLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
-        <FrameLayout
-            android:id="@+id/frameLayoutMap"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
-            <com.example.ecomaxgoassessmant.FlightPathView
-                android:id="@+id/flightPathView"
-                android:layout_width="match_parent"
-                android:layout_height="210dp"
-                android:layout_marginTop="10dp" />
-        </FrameLayout>
 
-        <androidx.cardview.widget.CardView
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/frameLayoutMap"
-            app:cardBackgroundColor="#FAFAFA"
-            app:cardCornerRadius="8dp"
-            android:elevation="4dp"
-            android:layout_margin="1dp"
-            >
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
             <LinearLayout
+                android:id="@+id/linearLayout12"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_marginTop="-8dp"
+                android:background="@drawable/toolbar_radius"
+                android:elevation="4dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="3"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
                 <LinearLayout
-                    android:id="@+id/linearLayout1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:weightSum="3"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/roundbg_text"
-                            android:gravity="center"
-                            android:padding="8dp"
-                            android:text="One Way"
-                            android:textColor="@color/white"
-                            android:textFontWeight="500"
-                            android:textSize="11dp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:padding="8dp"
-                            android:text="Round Trip"
-                            android:textFontWeight="500"
-                            android:textSize="11dp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:padding="8dp"
-                            android:text="Multicity"
-                            android:textFontWeight="500"
-                            android:textSize="11dp" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearLayout2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
                     android:gravity="center"
-                    android:weightSum="2">
+                    android:orientation="vertical"
+                    android:paddingVertical="10dp">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                    <ImageView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1.1">
+                        android:src="@drawable/bus">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="10dp"
-                            android:text="From"
-                            android:textColor="@color/active_color"
-                            android:textFontWeight="400"
-                            android:textSize="11dp" />
-                    </LinearLayout>
+                    </ImageView>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/frame_66">
-
-                        </ImageView>
-                    </LinearLayout>
+                        android:text="Bus"
+                        android:textSize="14dp" />
 
                 </LinearLayout>
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingBottom="10dp"
-                    >
-
-                    <Spinner
-                        android:id="@+id/spinnerView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:background="@null"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <!-- Dropdown Arrow Image -->
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingVertical="10dp">
 
                     <ImageView
-                        android:id="@+id/dropdown_arrow"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/state3"
-                        app:layout_constraintBottom_toBottomOf="@+id/spinnerView"
-                        app:layout_constraintStart_toEndOf="@+id/spinnerView"
-                        app:layout_constraintTop_toTopOf="@+id/spinnerView" />
-
-                    <View
-                        android:id="@+id/view"
-                        android:layout_width="0dp"
-                        android:layout_height="2dp"
-                        android:background="@android:color/darker_gray"
-                        app:layout_constraintEnd_toEndOf="@+id/spinnerView"
-                        app:layout_constraintStart_toStartOf="@+id/spinnerView"
-                        app:layout_constraintTop_toBottomOf="@+id/spinnerView" />
-
-                    <ImageView
-                        android:id="@+id/imageView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/group_2608187"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.52" />
+                        android:src="@drawable/bus"
+                        app:tint="@color/toolbar_color"
 
-                    <Spinner
-                        android:id="@+id/spinnerView1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@null"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.824"
-                        app:layout_constraintStart_toEndOf="@+id/imageView"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        >
 
-                    <ImageView
-                        android:id="@+id/dropdown_arrow_to"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/state3"
-                        app:layout_constraintBottom_toBottomOf="@+id/spinnerView1"
-                        app:layout_constraintEnd_toStartOf="@+id/spinnerView1"
-                        app:layout_constraintTop_toTopOf="@+id/spinnerView1" />
-
-
-                    <View
-                        android:id="@+id/view2"
-                        android:layout_width="0dp"
-                        android:layout_height="2dp"
-                        android:background="@android:color/darker_gray"
-                        app:layout_constraintEnd_toEndOf="@+id/dropdown_arrow"
-                        app:layout_constraintStart_toStartOf="@+id/spinnerView"
-                        app:layout_constraintTop_toBottomOf="@+id/spinnerView" />
-
-
-                    <View
-                        android:id="@+id/view3"
-                        android:layout_width="0dp"
-                        android:layout_height="2dp"
-                        android:background="@android:color/darker_gray"
-                        app:layout_constraintEnd_toEndOf="@+id/spinnerView1"
-                        app:layout_constraintStart_toStartOf="@+id/dropdown_arrow_to"
-                        app:layout_constraintTop_toBottomOf="@+id/spinnerView1" />
+                    </ImageView>
 
                     <TextView
-                        android:id="@+id/textViewLocFrom"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="sample"
-                        app:layout_constraintEnd_toEndOf="@+id/view2"
-                        app:layout_constraintStart_toStartOf="@+id/view"
-                        app:layout_constraintTop_toBottomOf="@+id/view" />
+                        android:text="Flight"
+                        android:textColor="@color/toolbar_color"
+                        android:textSize="14dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingVertical="10dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/bus">
+
+                    </ImageView>
 
                     <TextView
-                        android:id="@+id/textViewLocTo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="sample"
-                        app:layout_constraintEnd_toEndOf="@+id/view3"
-                        app:layout_constraintStart_toStartOf="@+id/view3"
-                        app:layout_constraintTop_toBottomOf="@+id/view3" />
+                        android:text="Hotels"
+                        android:textSize="14dp" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
 
             </LinearLayout>
 
+            <RelativeLayout
+                android:id="@+id/relativeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout12">
 
-        </androidx.cardview.widget.CardView>
+                <FrameLayout
+                    android:id="@+id/frameLayoutMap"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-    </RelativeLayout>
+                    <com.example.ecomaxgoassessmant.FlightPathView
+                        android:id="@+id/flightPathView"
+                        android:layout_width="match_parent"
+                        android:layout_height="210dp"
+                        android:layout_marginTop="10dp" />
+                </FrameLayout>
 
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/frameLayoutMap"
+                    android:layout_margin="1dp"
+                    android:elevation="4dp"
+                    app:cardBackgroundColor="#FAFAFA"
+                    app:cardCornerRadius="8dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:id="@+id/linearLayout1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:weightSum="3"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/roundbg_text"
+                                    android:gravity="center"
+                                    android:padding="8dp"
+                                    android:text="One Way"
+                                    android:textColor="@color/white"
+                                    android:textFontWeight="500"
+                                    android:textSize="11dp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:padding="8dp"
+                                    android:text="Round Trip"
+                                    android:textFontWeight="500"
+                                    android:textSize="11dp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:padding="8dp"
+                                    android:text="Multicity"
+                                    android:textFontWeight="500"
+                                    android:textSize="11dp" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/linearLayout2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:weightSum="2">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.1">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="10dp"
+                                    android:text="From"
+                                    android:textColor="@color/active_color"
+                                    android:textFontWeight="400"
+                                    android:textSize="11dp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/frame_66">
+
+                                </ImageView>
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="10dp">
+
+                            <Spinner
+                                android:id="@+id/spinnerView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="20dp"
+                                android:background="@null"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <!-- Dropdown Arrow Image -->
+
+                            <ImageView
+                                android:id="@+id/dropdown_arrow"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/state3"
+                                app:layout_constraintBottom_toBottomOf="@+id/spinnerView"
+                                app:layout_constraintStart_toEndOf="@+id/spinnerView"
+                                app:layout_constraintTop_toTopOf="@+id/spinnerView" />
+
+                            <View
+                                android:id="@+id/view"
+                                android:layout_width="0dp"
+                                android:layout_height="2dp"
+                                android:background="@android:color/darker_gray"
+                                app:layout_constraintEnd_toEndOf="@+id/spinnerView"
+                                app:layout_constraintStart_toStartOf="@+id/spinnerView"
+                                app:layout_constraintTop_toBottomOf="@+id/spinnerView" />
+
+                            <ImageView
+                                android:id="@+id/imageView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/group_2608187"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintVertical_bias="0.52" />
+
+                            <Spinner
+                                android:id="@+id/spinnerView1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@null"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.824"
+                                app:layout_constraintStart_toEndOf="@+id/imageView"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <ImageView
+                                android:id="@+id/dropdown_arrow_to"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/state3"
+                                app:layout_constraintBottom_toBottomOf="@+id/spinnerView1"
+                                app:layout_constraintEnd_toStartOf="@+id/spinnerView1"
+                                app:layout_constraintTop_toTopOf="@+id/spinnerView1" />
+
+
+                            <View
+                                android:id="@+id/view2"
+                                android:layout_width="0dp"
+                                android:layout_height="2dp"
+                                android:background="@android:color/darker_gray"
+                                app:layout_constraintEnd_toEndOf="@+id/dropdown_arrow"
+                                app:layout_constraintStart_toStartOf="@+id/spinnerView"
+                                app:layout_constraintTop_toBottomOf="@+id/spinnerView" />
+
+
+                            <View
+                                android:id="@+id/view3"
+                                android:layout_width="0dp"
+                                android:layout_height="2dp"
+                                android:background="@android:color/darker_gray"
+                                app:layout_constraintEnd_toEndOf="@+id/spinnerView1"
+                                app:layout_constraintStart_toStartOf="@+id/dropdown_arrow_to"
+                                app:layout_constraintTop_toBottomOf="@+id/spinnerView1" />
+
+                            <TextView
+                                android:id="@+id/textViewLocFrom"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="sample"
+                                app:layout_constraintEnd_toEndOf="@+id/view2"
+                                app:layout_constraintStart_toStartOf="@+id/view"
+                                app:layout_constraintTop_toBottomOf="@+id/view" />
+
+                            <TextView
+                                android:id="@+id/textViewLocTo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="sample"
+                                app:layout_constraintEnd_toEndOf="@+id/view3"
+                                app:layout_constraintStart_toStartOf="@+id/view3"
+                                app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/cardView"
+                    android:paddingVertical="20dp"
+                    android:weightSum="3"
+                    android:orientation="horizontal"
+                    >
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        >
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="88dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        app:cardElevation="4dp"
+                        app:cardBackgroundColor="@color/cardBgColor"
+                        app:cardCornerRadius="6dp"
+                        android:layout_marginBottom="5dp"
+                        >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="8dp"
+                            >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Departure"
+                            android:textStyle="bold"
+                            />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="10dp"
+                            android:gravity="center"
+                            >
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="25 Jan"
+                                android:textStyle="bold"
+                                android:textSize="16dp"
+                                />
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/state3"
+                                android:layout_marginStart="10dp"
+                                />
+                        </LinearLayout>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Thursday"
+                                />
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+
+                        >
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="88dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            app:cardElevation="4dp"
+                            app:cardBackgroundColor="@color/cardBgColor"
+                            app:cardCornerRadius="6dp"
+                            android:layout_marginBottom="5dp"
+                            android:alpha="0.4"
+                            >
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:padding="8dp"
+                                >
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Return"
+                                    android:textStyle="bold"
+                                    />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginVertical="10dp"
+                                    android:gravity="center"
+                                    >
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="25 Jan"
+                                        android:textStyle="bold"
+                                        android:textSize="16dp"
+                                        />
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:src="@drawable/state3"
+                                        android:layout_marginStart="10dp"
+                                        />
+                                </LinearLayout>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Sunday"
+                                    />
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    >
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Passenger"
+
+                            />
+
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+
+
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
