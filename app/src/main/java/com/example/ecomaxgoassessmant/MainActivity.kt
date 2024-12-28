@@ -5,7 +5,6 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.Spinner
 import android.widget.TextView
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -17,8 +16,6 @@ import com.example.ecomaxgoassessmant.models.Location
 import com.google.android.gms.maps.GoogleMap
 
 class MainActivity : AppCompatActivity() {
-
-    private var googleMap: GoogleMap? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,10 +35,6 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         toolbar.navigationIcon?.setTint(ContextCompat.getColor(this, R.color.toolbar_color))
 
-//        // Get the SupportMapFragment and request the map to be ready
-//        val mapFragment = supportFragmentManager.findFragmentById(R.id.mapFragment) as SupportMapFragment
-//        mapFragment.getMapAsync(this)
-
         val flightPathView = findViewById<FlightPathView>(R.id.flightPathView)
 
 
@@ -50,7 +43,6 @@ class MainActivity : AppCompatActivity() {
             Location("SFO","San Francisco", 28.6139f, 77.2088f),
                     Location("LHR","London", 51.5074f, -0.1278f),
         )
-        //            Location("LAX","Los Angeles", 34.0522, -118.2437),
 
         // Set up the Spinner
         val spinnerFrom: Spinner = findViewById(R.id.spinnerView)
@@ -147,5 +139,10 @@ class MainActivity : AppCompatActivity() {
 //
 //        }
 //    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
 
 }
