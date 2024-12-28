@@ -44,23 +44,13 @@ class MainActivity : AppCompatActivity() {
 
         val flightPathView = findViewById<FlightPathView>(R.id.flightPathView)
 
-        // Set the flight path on your world image
-        flightPathView.setFlightPath(
-            startLat = 28.6139f,  // San Francisco
-            startLng = 77.2088f,
-            endLat = 51.5074f,    // London
-            endLng = -0.1278f
-        )
-
-        // Start animation
-        flightPathView.startFlightAnimation()
 
         // Create a list of Location objects
         val locations = listOf(
-            Location("JFK","New York", 40.7128, -74.0060),
-            Location("LAX","Los Angeles", 34.0522, -118.2437),
-            Location("SFO","San Francisco", 37.7749, -122.4194)
+            Location("SFO","San Francisco", 28.6139f, 77.2088f),
+                    Location("LHR","London", 51.5074f, -0.1278f),
         )
+        //            Location("LAX","Los Angeles", 34.0522, -118.2437),
 
         // Set up the Spinner
         val spinnerFrom: Spinner = findViewById(R.id.spinnerView)
@@ -70,19 +60,30 @@ class MainActivity : AppCompatActivity() {
         val adapter = CustomSpinnerAdapterFrom(this, locations)
         spinnerFrom.adapter = adapter
 
+        var latitudeFrom=0.0f
+        var latitudeTo=0.0f
+        var longitudeFrom=0.0f
+        var longitudeTo=0.0f
+
         spinnerFrom.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parentView: AdapterView<*>, view: View?, position: Int, id: Long) {
                 // Get the selected location
                 val selectedLocation = parentView.getItemAtPosition(position) as Location
 
                 // Extract latitude and longitude
-                val latitude = selectedLocation.latitude
-                val longitude = selectedLocation.longitude
-
-                // Show the selected location's latitude and longitude in a Toast (for demonstration)
-                //Toast.makeText(this@MainActivity, "Selected Location: Latitude = $latitude, Longitude = $longitude", Toast.LENGTH_SHORT).show()
+                latitudeFrom = selectedLocation.latitude
+                longitudeFrom = selectedLocation.longitude
 
                 textViewLocFrom.text = selectedLocation.titleName
+                flightPathView.setFlightPath(
+                    startLat = latitudeFrom,  // San Francisco
+                    startLng = longitudeFrom,
+                    endLat = latitudeTo,    // London
+                    endLng = longitudeTo
+                )
+                // Start animation
+                flightPathView.startFlightAnimation()
+
             }
 
             override fun onNothingSelected(parentView: AdapterView<*>) {
@@ -101,12 +102,19 @@ class MainActivity : AppCompatActivity() {
                 val selectedLocation = parentView.getItemAtPosition(position) as Location
 
                 // Extract latitude and longitude
-                val latitude = selectedLocation.latitude
-                val longitude = selectedLocation.longitude
+                latitudeTo = selectedLocation.latitude
+                longitudeTo = selectedLocation.longitude
 
-                // Show the selected location's latitude and longitude in a Toast (for demonstration)
-                //Toast.makeText(this@MainActivity, "Selected Location: Latitude = $latitude, Longitude = $longitude", Toast.LENGTH_SHORT).show()
                 textViewLocTo.text = selectedLocation.titleName
+
+                flightPathView.setFlightPath(
+                    startLat = latitudeFrom,  // San Francisco
+                    startLng = longitudeFrom,
+                    endLat = latitudeTo,    // London
+                    endLng = longitudeTo
+                )
+                // Start animation
+                flightPathView.startFlightAnimation()
 
             }
 
